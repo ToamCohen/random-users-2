@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="main-user-container"></div>
+		<div id="lorem-container"></div>
+		<div id="quote-container"></div>
+		<div id="pokemon-container"></div>
+		<div id="friends-container"></div>
+		<div id="list-of-users-container"></div>
+
+		<script id="user-template" type="text/x-handlebars-template">
+			<div id={{id}}>
+				<h1>
+					{{firstName}} {{lastName}}
+				</h1>
+				<h4>
+					{{city}}-{{state}}
+				</h4>
+				<img src={{picture}} alt="" />
+			</div>
+		</script>
+		<script id="quote-template" type="text/x-handlebars-template">
+			<div>
+				{{kanye}}
+			</div>
+		</script>
+		<script id="pokemon-template" type="text/x-handlebars-template">
+			<div>
+				<h2>
+					{{name}}
+				</h2>
+				<img src={{picture}} alt="" />
+			</div>
+		</script>
+		<script id="users-template" type="text/x-handlebars-template">
+			<div id="friends-container">
+				{{#each name_data}}
+					<div id={{id}}>
+						<ul>
+							<li>
+								{{firstName}}-{{lastName}}
+							</li>
+						</ul>
+					</div>
+				{{/each}}
+			</div>
+		</script>
+		<script id="lorem-template" type="text/x-handlebars-template">
+			{{this}}
+		</script>
+		<script id="list-of-users-template" type="text/x-handlebars-template">
+			{{#each user}}
+				<ul>
+					<li>
+						<div class="container" id={{id}}>
+							{{mainUser.firstName}}-{{mainUser.lastName}}
+							<button class="button-for-desplay-user">
+								ClickforUser
+							</button>
+						</div>
+					</li>
+				</ul>
+			{{/each}}
+		</script>
+
+		<!-- <script id="users-from-localStorage-template" type="text/x-handlebars-template"  >
+			<div>
+				<div id={{mainUser.id}}>
+					<h1>
+						{{mainUser.firstName}} {{mainUser.lastName}}
+					</h1>
+					<h4>
+						{{mainUser.city}}-{{mainUser.state}}
+					</h4>
+					<img src={{mainUser.picture}} alt="" />
+				</div>
+				{{text}}
+			</div>
+				{{qoutes.kanye}}
+				<div>
+					<h2>
+						{{pokemon.name}}
+					</h2>
+					<img src={{pokemon.picture}} alt="" />
+				</div>	
+				<div id="friends-container">
+					{{#each friends}}
+						<div id={{friends.id}}>
+							<ul>
+								<li>
+									{{this.firstName}}-{{this.lastName}}
+								</li>
+							</ul>
+						</div>
+					{{/each}}
+				</div>
+		</script> -->
+
+		<button id="load-data">load-data</button>
+		<button id="display-data">display-data</button>
+		<button id="save-to-localStorage">save-to-localStorage</button>
+		<button id="clear-button-from-localStorage">clear-your-data</button>
+
+		<script src="./node_modules/jquery/dist/jquery.js"></script>
+		<script src="./node_modules/handlebars/dist/handlebars.js"></script>
+		<script src="LocalStorage.js"></script>
+		<script src="Pokemon.js"></script>
+		<script src="MainUser.js"></script>
+		<script src="User.js"></script>
+		<script src="Renderer.js"></script>
+		<script src="Api.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
